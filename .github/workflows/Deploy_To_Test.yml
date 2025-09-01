@@ -29,9 +29,9 @@ jobs:
       - name: Validate DAB bundle
         run: |
           cd "Azure Databricks/Config"
-          databricks bundle validate --target dev
+          databricks bundle validate --target prod
 
       - name: Deploy DAB bundle
         run: |
           cd "Azure Databricks/Config"
-          databricks bundle deploy --target dev
+          databricks bundle deploy --target prod
