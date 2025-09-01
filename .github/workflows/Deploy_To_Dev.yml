@@ -28,7 +28,8 @@ jobs:
 
       - name: Validate DAB bundle
         run: |
-          databricks bundle validate --target dev --config-file "Azure Databricks/Config/databricks.yml"
+          cd "Azure Databricks/Config"
+          databricks bundle validate --target dev
 
       - name: Deploy DAB bundle
         run: |
