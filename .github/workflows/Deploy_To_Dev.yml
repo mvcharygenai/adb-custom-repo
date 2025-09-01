@@ -33,5 +33,5 @@ jobs:
 
       - name: Deploy DAB bundle
         run: |
-          cd readmebundlename/resources
+          cd "Azure Databricks/Config"
           databricks bundle deploy --target dev
