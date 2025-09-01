@@ -1,0 +1,37 @@
+name: Deploy_To_Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: tst
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      
+      - name: Install uv (Python package manager)
+        run: pip install uv
+
+      - name: Set up Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Set Databricks token
+        run: echo "DATABRICKS_TOKEN=${{ secrets.DATABRICKS_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Validate DAB bundle
+        run: |
+          cd "Azure Databricks/Config"
+          databricks bundle validate --target dev
+
+      - name: Deploy DAB bundle
+        run: |
+          cd "Azure Databricks/Config"
+          databricks bundle deploy --target dev
