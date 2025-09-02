@@ -9,8 +9,8 @@ bundle:
 #     build: uv build --wheel
 
 include:
-  - Workflows/*.yml
-  - Clusters/*.yml
+  - "Azure Databricks/Workflows/*.yml"
+  - "Azure Databricks/Clusters/*.yml"
 
 targets:
   dev:
