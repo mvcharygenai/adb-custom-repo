@@ -5,7 +5,7 @@ authors = [{ name = "mvcharygenai@gmail.com" }]
 requires-python = ">= 3.11"
 
 [project.optional-dependencies]
-dev = [
+]dev = [
     "pytest",
 
     # Code completion support for DLT, also install databricks-connect
