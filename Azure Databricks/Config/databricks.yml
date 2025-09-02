@@ -9,7 +9,7 @@ bundle:
 #     build: uv build --wheel
 
 include:
-  - Workflows/*/*.yml
+  - Workflows/*.yml
   - Clusters/*.yml
 
 targets:
